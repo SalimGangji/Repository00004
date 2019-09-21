@@ -1,0 +1,18 @@
+alias grep="/usr/bin/grep --colour=auto"
+alias cgrep="grep --extended-regexp --ignore-case"
+alias cngrep="cgrep --line-number"
+alias crgrep="cgrep --dereference-recursive --line-number"
+alias csed="/usr/bin/sed --silent --regexp-extended"
+alias curl="/usr/local/bin/curl"
+alias ccurl="/usr/local/bin/curl --header \"Cache-Control: no-cache --location\""
+alias ps="/usr/bin/ps -o uid,euser,f,sid,pgid,pid,ppid,comm,cmd -H --deselect --ppid=2 --deselect --pid=2 --sort=uid,sid,pgid"
+alias mydate="date | sed --regexp-extended --expression=\"s:( |\:|,)+:_:g\""
+export myDate=$(mydate)
+alias crsync="/usr/bin/rsync --verbose --checksum --backup --suffix=\".bak.${myDate}\""
+alias ls="/usr/bin/ls --color=auto"
+alias l.="ls -d .*"
+alias ll="ls -l"
+alias lla="ll -a"
+alias llR="ll -R"
+alias vi="/usr/bin/vim"
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'

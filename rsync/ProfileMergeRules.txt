@@ -1,0 +1,15 @@
+#explicitly not overwriting existing bashrc to prevent clobbering - .bashrc usually must be merged with some care
+- .bashrc
++ .aliases.rc
++ .vimrc
++ .gitconfig
+#directories need special care when you use include/exclude filters
+#explicit style
++ .vim/
++ .vim/**
++ .ssh/
++ .ssh/**
+#catch-all style
+#+ */
+#+ */**
+- *

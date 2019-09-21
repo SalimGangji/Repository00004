@@ -1,0 +1,45 @@
+set nu
+syntax on
+set nolist
+set ff=unix
+set paste
+
+" vim plugin manager https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" https://github.com/itchyny/lightline.vim
+Plug 'itchyny/lightline.vim'
+
+""""""""""""""""""""""""""""""""""""
+"plugins with colorschemes
+""""""""""""""""""""""""""""""""""""
+
+" https://github.com/kjssad/quantum.vim
+Plug 'kjssad/quantum.vim'
+
+" https://github.com/nightsense/snow
+Plug 'nightsense/snow'
+
+" https://github.com/zcodes/vim-colors-basic
+Plug 'zcodes/vim-colors-basic'
+""""""""""""""""""""""""""""""""""""
+
+" Initialize plugin system
+call plug#end()
+
+set termguicolors   " enable true colors support
+set background=dark " dark theme
+" set background=light " light theme
+colorscheme quantum
+let g:lightline = { 'colorscheme': 'wombat' }
+if !has('gui_running')
+  set t_Co=256
+endif
+
+set laststatus=2
+set noshowmode

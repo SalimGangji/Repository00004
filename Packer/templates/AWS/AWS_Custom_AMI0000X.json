@@ -1,0 +1,47 @@
+{
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-2",
+    "source_ami": "ami-0d8f6eb4f641ef691",
+    "instance_type": "t3.2xlarge",
+    "ssh_username": "ec2-user",
+    "ami_name": "AWS_Custom_AMI0000X",
+    "subnet_id": "[subnet-id-placeholder]",
+    "vpc_id": "[vpc-id-placeholder]",
+    "associate_public_ip_address": true
+  }],
+  "provisioners": [{
+     "type": "shell",
+     "script": "./provision_yum_update.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_disable_se_linux.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_subscription_manager_disable.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_epel_release.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_useful_packages.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_git.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_curl.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_rsync.sh"
+  }]
+}

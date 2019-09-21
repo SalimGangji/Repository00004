@@ -1,0 +1,11 @@
+#cloud-config
+users:
+- default
+- name: salim
+sudo: ALL=(ALL) NOPASSWD:ALL
+groups: users, admin
+lock_passwd: false
+passwd: $6$y6j4cY1k$mp.zYTqJu5zbBx/jUzImS10l/.ff.Tem7QeX5f4h.V9sh2qac7wxRUh2iikSJVTHt7XlKv4TZelyOxpDlYbP3.
+runcmd:
+- [ sh, -xc, "sed -i 's/.*PasswordAuthentication no*/PasswordAuthentication yes/g' /etc/ssh/sshd_config" ]
+- [ sh, -xc, "service sshd restart" ]

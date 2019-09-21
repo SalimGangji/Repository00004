@@ -1,0 +1,40 @@
+### useful tools and pre-requisites ###
+sleep 30
+
+declare -a packages=(
+  "ansible"
+  "automake"
+  "autoconf"
+  "bash-completion"
+  "bind-utils"
+  "curl"
+  "dhcp"
+  "gcc"
+  "htop"
+  "iproute"
+  "java-1.8.0-openjdk.x86_64"
+  "jq"
+  "lsof"
+  "lvm"
+  "mc"
+  "make"
+  "nano"
+  "nc"
+  "net-snmp"
+  "net-snmp-utils"
+  "net-tools"
+  "nmap"
+  "openssl-devel"
+  "postfix"
+  "python-devel"
+  "python-pip"
+  "tcpdump"
+  "telnet"
+  "traceroute"
+  "unzip"
+  "vim"
+  "wget"
+)
+
+sudo yum --assumeyes install ${packages[@]}
+
