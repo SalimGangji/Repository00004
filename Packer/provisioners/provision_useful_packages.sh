@@ -28,12 +28,14 @@ declare -a packages=(
   "postfix"
   "python-devel"
   "python-pip"
+  # rsync                 # newer version of rsync compiled from source
   "tcpdump"
   "telnet"
   "traceroute"
   "unzip"
   "vim"
   "wget"
+  "yum-utils"
 )
 
 sudo yum --assumeyes install ${packages[@]}

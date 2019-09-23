@@ -4,17 +4,55 @@
     "ssh_username": "centos",
     "image_name": "customized_ops_image",
     "source_image_name": "CentOS-7-x86_64-GenericCloud-1905",
-    "flavor": "m1.xlarge",
+    "flavor": "m1.medium",
     "security_groups": ["default"],
     "networks": ["89ba35a1-0b03-492c-b9af-7b3f59f3cb44"],
 	"insecure": "true"
   }],
-  "provisioners": [{
+  "provisioners": [
+  {
     "type": "shell",
-    "script": "images/provisioners/provision_basic.sh"
+    "script": "images/provisioners/provision_yum_update.sh"
   },
   {
     "type": "shell",
-    "script": "images/provisioners/provision_customized_ops_image.sh"
-  }]
+    "script": "images/provisioners/provision_disable_se_linux.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_subscription_manager_disable.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_epel_release_non_amazon.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_useful_packages.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_git.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_curl.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_rsync.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_syslog_ng_ose.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_nagios.sh"
+  },
+  {
+    "type": "shell",
+    "script": "images/provisioners/provision_nginx.sh"
+  }
+  ]
 }
