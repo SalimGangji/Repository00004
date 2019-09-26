@@ -3,8 +3,8 @@
     "type": "openstack",
     "ssh_username": "centos",
     "image_name": "basic_image",
-    "source_image_name": "CentOS-7-x86_64-GenericCloud-1905",
-    "flavor": "m1.xlarge",
+    "source_image_name": "CentOS-7-x86_64-GenericCloud-1907",
+    "flavor": "m1.medium",
     "security_groups": ["default"],
     "networks": ["89ba35a1-0b03-492c-b9af-7b3f59f3cb44"],
 	"insecure": "true"
