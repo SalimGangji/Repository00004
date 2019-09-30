@@ -15,7 +15,7 @@ declare -a packages=(
   "java-1.8.0-openjdk.x86_64"
   "jq"
   "lsof"
-  "lvm"
+  "lvm2"
   "mc"
   "make"
   "nano"
