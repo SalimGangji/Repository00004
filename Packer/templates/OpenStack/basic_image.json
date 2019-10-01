@@ -9,8 +9,42 @@
     "networks": ["89ba35a1-0b03-492c-b9af-7b3f59f3cb44"],
 	"insecure": "true"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "script": "images/provisioners/provision_basic.sh"
-  }]
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_yum_update.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_disable_se_linux.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_subscription_manager_disable.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_epel_release_non_amazon.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_useful_packages.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_git.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_curl.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_rsync.sh"
+    },
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_powershell.sh"
+    }
+    ]
 }

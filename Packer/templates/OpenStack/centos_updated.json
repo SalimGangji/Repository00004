@@ -9,8 +9,10 @@
     "networks": ["89ba35a1-0b03-492c-b9af-7b3f59f3cb44"],
 	"insecure": "true"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "script": "images/provisioners/provision_centos_updated.sh"
-  }]
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "images/provisioners/provision_yum_update.sh"
+    }
+    ]
 }
