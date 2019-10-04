@@ -4,7 +4,7 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "us-east-2",
-    "source_ami": "ami-0d8f6eb4f641ef691",
+    "source_ami": "ami-00c03f7f7f2ec15c3",
     "instance_type": "t3.2xlarge",
     "ssh_username": "ec2-user",
     "ami_name": "AWS_Custom_AMI0000X",
@@ -43,5 +43,9 @@
   {
      "type": "shell",
      "script": "./provision_rsync.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_powershell.sh"
   }]
 }
