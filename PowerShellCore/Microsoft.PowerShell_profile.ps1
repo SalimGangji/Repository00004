@@ -1,6 +1,6 @@
 new-alias -name "ll" -value "get-childitem"
 
-#[System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform([System.Runtime.InteropServices.OSPlatform]::Windows
+#[System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform([System.Runtime.InteropServices.OSPlatform]::Windows)
 
 if($IsWindows){
     #Windows
