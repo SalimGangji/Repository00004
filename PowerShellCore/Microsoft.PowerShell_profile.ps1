@@ -1,10 +1,15 @@
 new-alias -name "ll" -value "get-childitem"
 
-#Windows
-set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::Yellow}
+#[System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform([System.Runtime.InteropServices.OSPlatform]::Windows
 
-#Linux
-set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::DarkCyan}
+if($IsWindows){
+    #Windows
+    set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::Yellow};
+}
+else {
+    #Linux
+    set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::DarkCyan};
+}
 
 set-psreadlineoption -Colors @{"Member"=[ConsoleColor]::Blue}
 set-psreadlineoption -Colors @{"Number"=[ConsoleColor]::DarkBlue}
@@ -14,5 +19,7 @@ set-psreadlineoption -Colors @{"Comment"=[ConsoleColor]::Blue}
 set-psreadlineoption -Colors @{"String"=[ConsoleColor]::Cyan}
 get-psreadlineoption
 
-#Windows
-show-tmoutputcolor
+if($IsWindows){
+    #Windows
+    show-tmoutputcolor
+}
