@@ -1,0 +1,32 @@
+[core]
+	editor = vim
+[help]
+	autocorrect = 1
+[color]
+	ui = auto
+	ui = true
+[user]
+	name = Salim Gangji
+	email = salim.gangji@gmail.com
+[format]
+	pretty = oneline
+[alias]
+	log25 = log --max-count=25 --decorate
+	graph60 = log --all --graph --max-count=60
+	config-origin = config --list --show-origin
+	http-sslVerifyOn = config http.sslVerify on
+	http-sslVerfiyOff = config http.sslVerify off
+	http-proxyon = config http.proxy http://198.161.14.25:8080
+	http-proxyoff = config --unset http.proxy
+	https-proxyon = config https.proxy https://198.161.14.25:8080
+	https-proxyoff = config --unset https.proxy
+[credential]
+	helper = manager
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
+[color "branch"]
+  remote = yellow
+[color "decorate"]
+  tag = green bold
