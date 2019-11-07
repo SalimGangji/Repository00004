@@ -34,6 +34,10 @@
   },
   {
      "type": "shell",
+     "script": "./provision_git.sh"
+  },
+  {
+     "type": "shell",
      "script": "./provision_curl.sh"
   },
   {
