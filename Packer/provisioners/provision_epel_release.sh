@@ -1,3 +1,3 @@
 # epel repository #
 sleep 30
-sudo amazon-linux-extras install epel
+sudo amazon-linux-extras install epel -y
