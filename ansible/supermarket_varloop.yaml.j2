@@ -1,0 +1,46 @@
+#flatten, keeping category as an attribute
+supermarket_items:  
+{% for supermarket_item_category in supermarket %}
+{% for supermarket_item in supermarket[supermarket_item_category] | sort(attribute='name') %}
+  - name: {{ supermarket_item.name }}
+    price: {{ supermarket_item.price }}
+    category: {{ supermarket_item_category }}
+    essential: {{ supermarket_item.essential }}
+{% endfor %}
+{% endfor %}
+
+{# https://www.arctiq.ca/our-blog/2017/2/16/ansible-jinja-warrior-loop-variable-scope/
+supermarket_categories:
+{% for supermarket_item_category in supermarket %}
+{% set loop_count = 0 %}
+{% set category_sum = 0 %}
+{% for supermarket_item in supermarket[supermarket_item_category] | sort(attribute='name') %}
+{% set loop_count = loop_count + 1 %}
+{% set category_sum = category_sum + supermarket_item.price %}
+{% if loop_count == (supermarket[supermarket_item_category] | length) %}
+  - name: {{ supermarket_item_category }}
+    total_category_cost: {{ category_sum }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+#}
+
+supermarket_categories:
+{% for supermarket_item_category in supermarket %}
+  - name: {{ supermarket_item_category }}
+    total_category_cost: {{ supermarket[supermarket_item_category] | sum(attribute='price') }}
+    item_count: {{ supermarket[supermarket_item_category] | length }}
+    item_names: {{ supermarket[supermarket_item_category] | map(attribute='name') | join(', ') }}
+    essential_item_count: {{ supermarket[supermarket_item_category] | selectattr('essential') | list | length }}
+{% endfor %}
+
+supermarket_orders:
+{% for supermarket_order in orders %}
+  - name: {{ supermarket_order.name }}
+    items:
+{% for item in supermarket_order.order_items %}
+{% for supermarket_item in ( supermarket | dict2items ) %}
+      name: {{ item }}
+{% endfor %}
+{% endfor %}
+{% endfor %}

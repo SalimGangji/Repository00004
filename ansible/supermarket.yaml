@@ -1,0 +1,69 @@
+---
+- name: supermarket
+  hosts: localhost
+  connection: local
+  vars_files:
+    - supermarket_vars.yaml
+    - supermarket_flat_output.yaml
+  tasks:
+  - name: print supermarket hierarchical dictionary
+    debug:
+      msg: "{{ supermarket }}"
+  - name: print list of categories inside supermarket hierarchical dictionary
+    debug:
+      msg: "{{ supermarket.keys() | list }}"
+  - name: sort the list of categories alphabetically and print the first category from the sorted list
+    debug:
+      msg: "{{ supermarket.keys() | sort | first }}"
+  - name: print supermarket items flat list
+    debug:
+      msg: "{{ supermarket_items }}"
+  - name: select essential supermarket items from the flat list
+    set_fact:
+      essential_items: "{{ supermarket_items | selectattr('essential') | list }}"
+  - name: categories that contain essentials
+    set_fact:
+      essential_categories: "{{ supermarket_items | selectattr('essential') | map(attribute='category') | unique }}"
+  - name: print essential items
+    debug:
+      msg: "{{ hostvars['localhost']['essential_items'] }}"
+  - name: print essential categories
+    debug:
+      msg: "{{ hostvars['localhost']['essential_categories'] }}"
+  - name: sum the cost of the essential items
+    debug:
+      msg: "{{ hostvars['localhost']['essential_items'] | sum(attribute='price') }}"
+  - name: items that are in the cleaning_supplies category
+    debug:
+      msg: "{{ supermarket_items | selectattr('category', 'match', 'cleaning_supplies') | list }}"
+  - name: all items that are not in the cleaning_supplies category
+    debug:
+      msg: "{{ supermarket_items | rejectattr('category', 'match', 'cleaning_supplies') | list }}"
+  - name: total cost of each category
+    debug:
+      msg: "category: {{ item }}, total cost: {{ supermarket_items | selectattr('category', 'match', item) | sum(attribute='price') }}"
+    loop: "{{ supermarket.keys() | list }}"
+  - name: set the cheapest item
+    set_fact:
+      cheapest_item: "{{ supermarket_items | sort(attribute='price') | first }}"
+  - name: print the cheapest item
+    debug:
+      msg: "the cheapest item is {{ (hostvars['localhost']['cheapest_item']).name }} at a cost of {{ (hostvars['localhost']['cheapest_item']).price }}"
+  - name: set the most expensive item
+    set_fact:
+      most_expensive_item: "{{ supermarket_items | sort(attribute='price') | last }}"
+  - name: print the most expensive item
+    debug:
+      msg: "the most expensive item is {{ (hostvars['localhost']['most_expensive_item']).name }} at a cost of {{ (hostvars['localhost']['most_expensive_item']).price }}"
+  - name: set the cheapest category
+    set_fact:
+      cheapest_category: "{{ supermarket_categories | sort(attribute='total_category_cost') | first }}"
+  - name: print the cheapest category
+    debug:
+      msg: "the cheapest category is {{ (hostvars['localhost']['cheapest_category']).name }} at a cost of {{ (hostvars['localhost']['cheapest_category']).total_category_cost }}"
+  - name: set the most expensive category
+    set_fact:
+      most_expensive_cateogry: "{{ supermarket_categories | sort(attribute='total_category_cost') | last }}"
+  - name: print the cheapest category
+    debug:
+      msg: "the most_expensive category is {{ (hostvars['localhost']['most_expensive_cateogry']).name }} at a cost of {{ (hostvars['localhost']['most_expensive_cateogry']).total_category_cost }}"

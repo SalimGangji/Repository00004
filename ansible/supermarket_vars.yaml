@@ -1,0 +1,50 @@
+---
+supermarket:
+  dry_goods:
+    -  name: cereal_box
+       price: 2.99
+       essential: no
+    -  name: ground_coffee
+       price: 4.99
+       essential: yes
+    -  name: almond_flour
+       price: 6.99
+       essential: no
+  cleaning_supplies:
+    -  name: clorox
+       price: 2.99
+       essential: no
+    -  name: J-cloths (pack of 3)
+       price: 5.99
+       essential: no
+  produce:
+    -  name: apples
+       price: 1.99
+       essential: no
+    -  name: oranges
+       price: 4.99
+       essential: yes
+  bakery:
+    -  name: bread
+       price: 3.99
+       essential: yes
+    -  name: english muffins
+       price: 4.99
+       essential: no
+  groceries:
+    -  name: orange juice
+       price: 4.50
+       essential: yes
+    -  name: canned tomatoes
+       price: 3.99
+       essential: no
+orders:
+  - name: one bread and one orange juice
+    order_items:
+      - "bread"
+      - "orange juice"
+  - name: one bread and two orange juice
+    order_items:
+      - "bread"
+      - "orange juice"
+      - "orange juice"
