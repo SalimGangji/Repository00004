@@ -4,6 +4,7 @@
   hosts: localhost
   connection: local
   vars_files:
+    - supermarket_orders.yaml
     - supermarket_items_flat.yaml
   gather_facts: no
   tasks:

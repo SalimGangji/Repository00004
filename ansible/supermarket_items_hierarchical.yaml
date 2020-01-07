@@ -38,15 +38,3 @@ supermarket:
     -  name: canned tomatoes
        price: 3.99
        essential: no
-orders:
-  - name: one bread one oranges and one orange juice
-    order_items:
-      - "bread"
-      - "oranges"
-      - "orange juice"
-  - name: one bread one oranges and two orange juice
-    order_items:
-      - "bread"
-      - "oranges"
-      - "orange juice"
-      - "orange juice"
