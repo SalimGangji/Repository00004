@@ -2,6 +2,12 @@
 - name: supermarket
   hosts: localhost
   connection: local
+  vars:
+    - order00001:
+      - "bread"
+      - "oranges"
+      - "orange juice"
+      - "orange juice"
   vars_files:
     - supermarket_items_hierarchical.yaml
     - supermarket_items_flat.yaml
@@ -70,11 +76,10 @@
   - name: set the cost of one bread, one oranges and two orange juice
     set_fact:
       order_cost: "{{ ( order_cost | default(0) | float ) + ( supermarket_items | selectattr('name', 'match', item) | map(attribute='price') | list | first | float ) }}"
-    loop:
-      - "bread"
-      - "oranges"
-      - "orange juice"
-      - "orange juice"
+    loop: "{{ order00001 }}"
   - name: print the cost of one bread, one oranges and two orange juice
     debug:
       msg: "the cost of one bread, one oranges and two orange juice is {{ hostvars['localhost']['order_cost'] }}"
+  - name: print average cost per item of the order above
+    debug:
+      msg: "{{ ( (hostvars['localhost']['order_cost'] | float) / (order00001 | length) ) | round(2) }}"
