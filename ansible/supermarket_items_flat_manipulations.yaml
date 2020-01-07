@@ -3,8 +3,8 @@
   hosts: localhost
   connection: local
   vars_files:
-    - supermarket_vars.yaml
-    - supermarket_flat_output.yaml
+    - supermarket_items_hierarchical.yaml
+    - supermarket_items_flat.yaml
   tasks:
   - name: print supermarket hierarchical dictionary
     debug:
