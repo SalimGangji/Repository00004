@@ -1,0 +1,11 @@
+---
+# https://www.arctiq.ca/our-blog/2017/2/16/ansible-jinja-warrior-loop-variable-scope/
+- name: Demonstrating variables in Jinja2 Loops
+  hosts: localhost
+  connection: local
+  vars_files:
+    - supermarket_items_hierarchical.yaml
+  gather_facts: no
+  tasks:
+    - name: Create the Jinja2 based template
+      template: src=./supermarket_items_flatten.j2 dest=./supermarket_items_flat.yaml
