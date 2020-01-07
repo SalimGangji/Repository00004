@@ -1,13 +1,13 @@
 ---
 supermarket:
   dry_goods:
-    -  name: cereal_box
+    -  name: cereal
        price: 2.99
        essential: no
-    -  name: ground_coffee
+    -  name: ground coffee
        price: 4.99
        essential: yes
-    -  name: almond_flour
+    -  name: almond flour
        price: 6.99
        essential: no
   cleaning_supplies:
@@ -38,3 +38,7 @@ supermarket:
     -  name: canned tomatoes
        price: 3.99
        essential: no
+  pharmacy:
+    - name: band aids
+      price: 5.99
+      essential: yes
