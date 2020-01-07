@@ -2,10 +2,13 @@ supermarket_orders:
 {% for supermarket_order in orders %}
   - name: {{ supermarket_order.name }}
     items:
+{% set order_cost = ( 0 | float ) %}
 {% for item in supermarket_order.order_items %}
-{% for supermarket_item in supermarket_items %}
-      name: {{ item.name }}
-      price: {{ item.price }}
+{% set supermarket_item = ( supermarket_items | selectattr('name','match', item) | list | first ) %}
+      - name: {{ supermarket_item.name }}
+        price: {{ supermarket_item.price }}
+{% set order_cost = order_cost + supermarket_item.price %}
+{% do supermarket_order.update({'order_cost':order_cost}) %}
 {% endfor %}
-{% endfor %}
+    order_cost: {{ supermarket_order.order_cost }}
 {% endfor %}
