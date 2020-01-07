@@ -3,8 +3,9 @@ supermarket_orders:
   - name: {{ supermarket_order.name }}
     items:
 {% for item in supermarket_order.order_items %}
-{% for supermarket_item in ( supermarket | dict2items ) %}
-      name: {{ item }}
+{% for supermarket_item in supermarket_items %}
+      name: {{ item.name }}
+      price: {{ item.price }}
 {% endfor %}
 {% endfor %}
 {% endfor %}
