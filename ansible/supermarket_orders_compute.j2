@@ -1,0 +1,10 @@
+supermarket_orders:
+{% for supermarket_order in orders %}
+  - name: {{ supermarket_order.name }}
+    items:
+{% for item in supermarket_order.order_items %}
+{% for supermarket_item in ( supermarket | dict2items ) %}
+      name: {{ item }}
+{% endfor %}
+{% endfor %}
+{% endfor %}

@@ -33,14 +33,3 @@ supermarket_categories:
     item_names: {{ supermarket[supermarket_item_category] | map(attribute='name') | join(', ') }}
     essential_item_count: {{ supermarket[supermarket_item_category] | selectattr('essential') | list | length }}
 {% endfor %}
-
-supermarket_orders:
-{% for supermarket_order in orders %}
-  - name: {{ supermarket_order.name }}
-    items:
-{% for item in supermarket_order.order_items %}
-{% for supermarket_item in ( supermarket | dict2items ) %}
-      name: {{ item }}
-{% endfor %}
-{% endfor %}
-{% endfor %}
