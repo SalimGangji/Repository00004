@@ -2,7 +2,7 @@
 
 ## Links
 
-<https://www.arctiq.ca/our-blog/2017/2/16/ansible-jinja-warrior-loop-variable-scope/>
+<https://www.arctiq.ca/our-blog/2017/2/16/ansible-jinja-warrior-loop-variable-scope/>  
 <https://stackoverflow.com/questions/12078571/jinja-templates-format-a-float-as-comma-separated-currency>
 
 ## Steps
