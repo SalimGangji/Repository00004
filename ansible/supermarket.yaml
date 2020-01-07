@@ -67,3 +67,14 @@
   - name: print the cheapest category
     debug:
       msg: "the most_expensive category is {{ (hostvars['localhost']['most_expensive_cateogry']).name }} at a cost of {{ (hostvars['localhost']['most_expensive_cateogry']).total_category_cost }}"
+  - name: set the cost of one bread, one oranges and two orange juice
+    set_fact:
+      order_cost: "{{ ( order_cost | default(0) | float ) + ( supermarket_items | selectattr('name', 'match', item) | map(attribute='price') | list | first | float ) }}"
+    loop:
+      - "bread"
+      - "oranges"
+      - "orange juice"
+      - "orange juice"
+  - name: print the cost of one bread, one oranges and two orange juice
+    debug:
+      msg: "the cost of one bread, one oranges and two orange juice is {{ hostvars['localhost']['order_cost'] }}"
