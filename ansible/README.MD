@@ -10,6 +10,8 @@
 ```powershell
 git clone https://github.com/SalimGangji/Repository00004.git
 
+csed --in-place=".bak" --expression="/jinja2_extensions/I s:^\#(jinja2_extensions.*):\1:gI" --expression="p" /etc/ansible/ansible.cfg
+
 ansible-playbook Repository00004/ansible/supermarket_items_flatten.yaml
 vi -R Repository00004/ansible/supermarket_items_flat.yaml
 
