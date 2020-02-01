@@ -2,6 +2,8 @@ new-alias -name "ll" -value "get-childitem"
 
 #[System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform([System.Runtime.InteropServices.OSPlatform]::Windows)
 
+#https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7
+
 if($IsWindows){
     #Windows
     set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::Yellow};
