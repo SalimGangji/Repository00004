@@ -1,0 +1,47 @@
+{
+  "builders": [{
+    "type": "googlecompute",
+    "project_id": "vacationapp01",
+    "source_image_family": "centos-7",
+    "ssh_username": "packer",
+    "zone": "us-central1-c",
+    "subnetwork": "https://www.googleapis.com/compute/v1/projects/vacationapp01/regions/us-central1/subnetworks/public",
+    "tags": ["jumppoint"]
+  }],
+  "provisioners": [{
+     "type": "shell",
+     "script": "./provision_yum_update.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_disable_se_linux.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_subscription_manager_disable.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_epel_release.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_useful_packages.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_git.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_curl.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_rsync.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_powershell.sh"
+  }]
+}
