@@ -22,7 +22,7 @@
   },
   {
      "type": "shell",
-     "script": "./provision_epel_release.sh"
+     "script": "provision_epel_release_non_amazon.sh"
   },
   {
      "type": "shell",
