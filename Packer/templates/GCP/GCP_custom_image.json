@@ -2,6 +2,7 @@
   "builders": [{
     "type": "googlecompute",
     "project_id": "vacationapp01",
+    "image_family": "salim-custom",
     "source_image_family": "centos-7",
     "ssh_username": "packer",
     "zone": "us-central1-c",
