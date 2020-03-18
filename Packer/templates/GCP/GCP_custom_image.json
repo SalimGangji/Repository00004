@@ -44,5 +44,9 @@
   {
      "type": "shell",
      "script": "./provision_powershell.sh"
+  },
+  {
+     "type": "shell",
+     "script": "./provision_docker.sh"
   }]
 }
