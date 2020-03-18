@@ -29,6 +29,7 @@ declare -a packages=(
   "python-devel"
   "python-pip"
   # rsync                 # newer version of rsync compiled from source
+  "screen"
   "tcpdump"
   "telnet"
   "traceroute"
