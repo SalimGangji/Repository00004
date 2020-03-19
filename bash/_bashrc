@@ -20,10 +20,10 @@ source ${HOME}/.aliasesrc
 declare -a keypairs=$(find Repository00004/vaultEncryptedSSHKeys/KeyPair00* -type f)
 for keypair in ${keypairs[@]}; 
 do
-    cp $keypair $HOME;
+    cp $keypair ${HOME};
 done
 
 ansible-vault decrypt KeyPair00* --ask-vault-pass
 eval $(ssh-agent)
-ssh-add KeyPair00*
-rm -rf KeyPair00*
+ssh-add ${HOME}/KeyPair00*
+rm -rf ${HOME}/KeyPair00*
