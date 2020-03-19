@@ -23,7 +23,7 @@ do
     cp $keypair ${HOME};
 done
 
-ansible-vault decrypt KeyPair00* --ask-vault-pass
+ansible-vault decrypt ${HOME}/KeyPair00* --ask-vault-pass
 eval $(ssh-agent)
 ssh-add ${HOME}/KeyPair00*
 rm -rf ${HOME}/KeyPair00*
