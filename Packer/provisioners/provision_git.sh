@@ -26,7 +26,6 @@ cd /var/tmp/git_compile_from_source/git-${git_version}/
 # for some reason on AWS amazon-linux-2 instances these packages do not install correctly, so installing them again here
 sleep 30
 sudo yum install python3 libcurl-devel expat-devel asciidoc xmlto --assumeyes
-
 sudo make prefix=/usr install install-doc install-html
 
 rm -rf /var/tmp/git_compile_from_source
