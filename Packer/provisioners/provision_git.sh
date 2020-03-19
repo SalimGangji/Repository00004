@@ -34,4 +34,4 @@ sudo make configure
 sudo ./configure --prefix=/usr/local
 sudo make prefix=/usr/local install install-doc install-html
 
-rm -rf /var/tmp/git_compile_from_source
+sudo rm -rf /var/tmp/git_compile_from_source
