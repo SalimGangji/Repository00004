@@ -31,7 +31,7 @@ sudo yum --assumeyes install curl-devel expat-devel gettext-devel openssl-devel 
 
 sudo make clean
 sudo make configure
-sudo ./configure
-sudo make prefix=/usr install install-doc install-html
+sudo ./configure --prefix=/usr/local
+sudo make prefix=/usr/local install install-doc install-html
 
 rm -rf /var/tmp/git_compile_from_source
