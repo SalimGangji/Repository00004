@@ -12,4 +12,4 @@ sudo ./configure
 sudo make
 sudo make install
 
-rm -rf /var/tmp/curl_compile_from_source
+sudo rm -rf /var/tmp/curl_compile_from_source
