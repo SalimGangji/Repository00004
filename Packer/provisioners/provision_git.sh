@@ -16,10 +16,12 @@ declare -a git_prereq_packages=(
 
 sudo yum --assumeyes install ${git_prereq_packages[@]}
 
-sudo curl --location https://github.com/git/git/archive/v2.24.0.tar.gz --output /var/tmp/git_v2.24.0.tar.gz
+git_version="2.25.2"
+
+sudo curl --location https://github.com/git/git/archive/v${git_version}.tar.gz --output /var/tmp/git_v${git_version}.tar.gz
 sudo mkdir --parents /var/tmp/git_compile_from_source
-sudo tar --extract --verbose --file /var/tmp/git_v2.24.0.tar.gz --directory=/var/tmp/git_compile_from_source
-cd /var/tmp/git_compile_from_source/git-2.24.0/
+sudo tar --extract --verbose --file /var/tmp/git_v${git_version}.tar.gz --directory=/var/tmp/git_compile_from_source
+cd /var/tmp/git_compile_from_source/git-${git_version}/
 
 # for some reason on AWS amazon-linux-2 instances these packages do not install correctly, so installing them again here
 sleep 30
