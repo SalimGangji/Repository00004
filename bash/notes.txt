@@ -1,0 +1,6 @@
+You will likely have to make some manual changes to the glob/wildcard pattern in keys.sh
+if you have any local keys
+perhaps a standard *.pem would work, if all encrypted keys can be renamed to have that extension
+
+chmod 0700 ${HOME}/keys.sh
+${HOME)/keys.sh
