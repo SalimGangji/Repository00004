@@ -3,6 +3,8 @@ syntax on
 set nolist
 set ff=unix
 set paste
+" set cursorline
+" set cursorcolumn
 
 " vim plugin manager https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
