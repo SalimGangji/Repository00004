@@ -21,6 +21,16 @@ new-alias -name "ll" -value "get-childitem"
 
 if($IsWindows){
     #Windows
+        
+    #Variables for work laptop L084790
+    if( $env:COMPUTERNAME -imatch "L084790" ) {
+        $everything = "C:\Master_Folder\Everything"
+        $active = "$everything\active"
+        $repos = "$everything\repos"
+        $desktop="$env:userprofile\Desktop"
+    }
+
+    #show-tmoutputcolor
     set-psreadlineoption -Colors @{"Command"=[ConsoleColor]::Yellow};
     set-psreadlineoption -Colors @{"String"=[ConsoleColor]::Cyan};
 }
@@ -35,9 +45,4 @@ set-psreadlineoption -Colors @{"Number"=[ConsoleColor]::DarkBlue}
 set-psreadlineoption -Colors @{"Parameter"=[ConsoleColor]::Gray}
 set-psreadlineoption -Colors @{"Type"=[ConsoleColor]::DarkMagenta}
 set-psreadlineoption -Colors @{"Comment"=[ConsoleColor]::Blue}
-get-psreadlineoption
-
-if($IsWindows){
-    #Windows
-    show-tmoutputcolor
-}
+#get-psreadlineoption
