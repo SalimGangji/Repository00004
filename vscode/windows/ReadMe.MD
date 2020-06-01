@@ -10,5 +10,5 @@
 
 ## environment variables
 
-[setting environment variables](https://docs.microsoft.com/en-us/dotnet/api/system.environment.setenvironmentvariable)
+[setting environment variables](https://docs.microsoft.com/en-us/dotnet/api/system.environment.setenvironmentvariable)  
 keep in mind that machine environment variables can easily be set through the windows GUI control panel >> system >> advanced system settings >> environment variables
